@@ -417,25 +417,35 @@ footer {
 }
 
 .slides {
-  width: 500%; 
-  height: 100%;
   display: flex;
-  animation: slide 20s infinite;
+  height: 100%;
+  animation: slide 55s ease-in-out infinite;
 }
 
 .slide {
-  width: 25%;  
+  flex: 0 0 100%;
+  width: 100%;
 }
 
 .slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 @keyframes slide {
-  0% { margin-left: 0; }
-  100% { margin-left: -300%; }
+  0%, 7% { transform: translateX(0); }
+  9%, 16% { transform: translateX(-100%); }
+  18%, 25% { transform: translateX(-200%); }
+  27%, 34% { transform: translateX(-300%); }
+  36%, 43% { transform: translateX(-400%); }
+  45%, 52% { transform: translateX(-500%); }
+  54%, 61% { transform: translateX(-600%); }
+  63%, 70% { transform: translateX(-700%); }
+  72%, 79% { transform: translateX(-800%); }
+  81%, 88% { transform: translateX(-900%); }
+  90%, 100% { transform: translateX(-1000%); }
 }
 /* Responsive Design */
 @media (max-width: 768px) {
