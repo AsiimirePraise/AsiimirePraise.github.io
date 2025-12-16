@@ -13,7 +13,12 @@
     <header>
         <nav>
           <p>Asiimire Praise</p>
-          <ul>
+          <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <ul id="navMenu">
             <li><a href="./index.html">01. Home</a></li>
             <li><a href="./index.html">02. About</a></li>
             <li><a href="./index.html">03. Projects</a></li>
@@ -85,5 +90,23 @@
         </div>
     </div>
     
+    <script>
+      // Hamburger menu toggle
+      const hamburger = document.getElementById('hamburger');
+      const navMenu = document.getElementById('navMenu');
+
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+      });
+
+      // Close menu when clicking on a link
+      document.querySelectorAll('#navMenu a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('active');
+        });
+      });
+    </script>
 </body>
 </html>

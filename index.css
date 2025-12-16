@@ -82,6 +82,39 @@ nav ul li a:hover::after {
   width: 100%;
 }
 
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 101;
+  gap: 5px;
+}
+
+.hamburger span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: #00d4ff;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
 /* Hero Section */
 .hero {
   display: flex;
@@ -449,10 +482,14 @@ footer {
 }
 /* Responsive Design */
 @media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
   nav {
-    flex-direction: column;
-    padding: 15px;
-    gap: 15px;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 20px;
   }
 
   nav p {
@@ -460,17 +497,39 @@ footer {
   }
 
   nav ul {
+    position: fixed;
+    top: 70px;
+    left: -50%;
+    width: 50%;
+    height: calc(100vh - 70px);
+    background: rgba(15, 15, 30, 0.98);
+    backdrop-filter: blur(10px);
     flex-direction: column;
-    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 30px;
+    padding: 40px 0;
+    transition: left 0.3s ease;
+    border-right: 1px solid rgba(0, 212, 255, 0.2);
+  }
+
+  nav ul.active {
+    left: 0;
+  }
+
+  nav ul li {
+    width: 100%;
     text-align: center;
   }
 
   nav ul li a {
-    font-size: 0.85rem;
+    font-size: 1.1rem;
+    display: block;
+    padding: 10px;
   }
 
   .hero {
-    padding: 100px 20px 50px;
+    padding: 80px 20px 50px;
   }
 
   .mee {
@@ -540,7 +599,7 @@ footer {
 
 @media (max-width: 480px) {
   nav {
-    padding: 10px;
+    padding: 10px 15px;
   }
 
   nav p {
@@ -548,15 +607,22 @@ footer {
   }
 
   nav ul {
-    gap: 8px;
+    top: 60px;
+    height: calc(100vh - 60px);
+    gap: 25px;
+    padding: 30px 0;
   }
 
   nav ul li a {
-    font-size: 0.75rem;
+    font-size: 1rem;
   }
 
   .hero h1 {
     font-size: 1.8rem;
+  }
+
+  .hero {
+    padding: 70px 15px 40px;
   }
 
   .mee img {
