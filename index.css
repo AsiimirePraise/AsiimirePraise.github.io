@@ -134,15 +134,26 @@ nav ul li a:hover::after {
   margin: 0 auto;
 }
 
-.mee img {
-  width: 350px;
-  height: 350px;
-  border-radius: 20px;
-  object-fit: cover;
+.image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  height: 280px;
   flex-shrink: 0;
+}
+
+.mee img {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  object-fit: cover;
   box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
   border: 2px solid rgba(0, 212, 255, 0.2);
   transition: transform 0.3s ease;
+  z-index: 2;
+  position: relative;
 }
 
 .mee img:hover {
@@ -156,6 +167,191 @@ nav ul li a:hover::after {
   max-width: 600px;
 }
 
+/* Rotating Tech Icons */
+.rotating-icons {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.icon-orbit {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.9), rgba(0, 153, 255, 0.9));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3), inset 0 1px 5px rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  animation: orbit 10s linear infinite;
+  z-index: 1;
+}
+
+.icon-orbit::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #00d4ff, #0099ff, #00ff88, #00d4ff);
+  border-radius: 50%;
+  z-index: -1;
+  animation: rotate-border 3s linear infinite;
+}
+
+.icon-orbit i {
+  font-size: 20px;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+/* Unique backgrounds for each technology */
+.python-bg {
+  background: linear-gradient(135deg, #3776ab, #ffd343) !important;
+}
+
+.js-bg {
+  background: linear-gradient(135deg, #f7df1e, #323330) !important;
+}
+
+.react-bg {
+  background: linear-gradient(135deg, #61dafb, #20232a) !important;
+}
+
+.c-bg {
+  background: linear-gradient(135deg, #a8b9cc, #283593) !important;
+}
+
+.dart-bg {
+  background: linear-gradient(135deg, #0175c2, #13b9fd) !important;
+}
+
+.html-bg {
+  background: linear-gradient(135deg, #e34c26, #f06529) !important;
+}
+
+.css-bg {
+  background: linear-gradient(135deg, #1572b6, #33a9dc) !important;
+}
+
+.java-bg {
+  background: linear-gradient(135deg, #ed8b00, #5382a1) !important;
+}
+
+.ml-bg {
+  background: linear-gradient(135deg, #ff6b35, #6a4c93) !important;
+}
+
+.ts-bg {
+  background: linear-gradient(135deg, #3178c6, #007acc) !important;
+}
+
+.python-bg::before {
+  background: linear-gradient(45deg, #3776ab, #ffd343, #3776ab, #ffd343) !important;
+}
+
+.js-bg::before {
+  background: linear-gradient(45deg, #f7df1e, #323330, #f7df1e, #323330) !important;
+}
+
+.react-bg::before {
+  background: linear-gradient(45deg, #61dafb, #20232a, #61dafb, #20232a) !important;
+}
+
+.c-bg::before {
+  background: linear-gradient(45deg, #a8b9cc, #283593, #a8b9cc, #283593) !important;
+}
+
+.dart-bg::before {
+  background: linear-gradient(45deg, #0175c2, #13b9fd, #0175c2, #13b9fd) !important;
+}
+
+.html-bg::before {
+  background: linear-gradient(45deg, #e34c26, #f06529, #e34c26, #f06529) !important;
+}
+
+.css-bg::before {
+  background: linear-gradient(45deg, #1572b6, #33a9dc, #1572b6, #33a9dc) !important;
+}
+
+.java-bg::before {
+  background: linear-gradient(45deg, #ed8b00, #5382a1, #ed8b00, #5382a1) !important;
+}
+
+.ml-bg::before {
+  background: linear-gradient(45deg, #ff6b35, #6a4c93, #ff6b35, #6a4c93) !important;
+}
+
+.ts-bg::before {
+  background: linear-gradient(45deg, #3178c6, #007acc, #3178c6, #007acc) !important;
+}
+
+@keyframes rotate-border {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes orbit {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) translateX(180px) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) translateX(180px) rotate(-360deg);
+  }
+}
+
+/* Position each icon for perfect circular orbit */
+.icon-1, .icon-2, .icon-3, .icon-4, .icon-5, .icon-6, .icon-7, .icon-8, .icon-9, .icon-10 {
+  top: 50%;
+  left: 50%;
+}
+
+.icon-1 { animation-delay: 0s; }
+.icon-2 { animation-delay: -1s; }
+.icon-3 { animation-delay: -2s; }
+.icon-4 { animation-delay: -3s; }
+.icon-5 { animation-delay: -4s; }
+.icon-6 { animation-delay: -5s; }
+.icon-7 { animation-delay: -6s; }
+.icon-8 { animation-delay: -7s; }
+.icon-9 { animation-delay: -8s; }
+.icon-10 { animation-delay: -9s; }
+
+@keyframes rotate {
+  0% {
+    transform: translateX(-50%) rotate(0deg) translateX(180px) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(360deg) translateX(180px) rotate(-360deg);
+  }
+}
+
+/* Adjust rotate animation for different positioned icons */
+.icon-2, .icon-3, .icon-5, .icon-6 {
+  transform-origin: center;
+}
+
+@keyframes rotate-positioned {
+  0% {
+    transform: rotate(0deg) translateX(180px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(180px) rotate(-360deg);
+  }
+}
+
+.icon-2, .icon-3, .icon-5, .icon-6 {
+  animation: rotate-positioned 8s linear infinite;
+}
+
 .hero h1 {
   font-size: 4rem;
   margin: 0;
@@ -165,6 +361,24 @@ nav ul li a:hover::after {
   background-clip: text;
   font-weight: 700;
   letter-spacing: -1px;
+}
+
+.typewriter-text {
+  font-size: 1.8rem;
+  font-weight: 600;
+  min-height: 60px;
+  background: linear-gradient(135deg, #00ff88, #00d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 10px 0;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin: 0;
+  color: #b0b0b0;
 }
 
 .hero p {
@@ -282,6 +496,7 @@ nav ul li a:hover::after {
   justify-content: space-between;
   animation: slideUp 0.6s ease-out forwards, float 3s ease-in-out infinite;
   opacity: 0;
+  perspective: 1000px;
 }
 
 .projectcard:nth-child(1) {
@@ -321,11 +536,14 @@ nav ul li a:hover::after {
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 15px;
-  transition: transform 0.3s ease;
+  transition: all 0.6s ease;
+  transform-style: preserve-3d;
+  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
 }
 
 .projectcard:hover img {
-  transform: scale(1.05);
+  transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+  box-shadow: 0 20px 50px rgba(0, 212, 255, 0.5);
 }
 
 .projectcard h2 {
@@ -537,9 +755,32 @@ footer {
     gap: 30px;
   }
 
+  .image-container {
+    width: 200px;
+    height: 200px;
+  }
+
   .mee img {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .icon-orbit {
+    width: 40px;
+    height: 40px;
+  }
+
+  .icon-orbit i {
+    font-size: 16px;
+  }
+
+  @keyframes orbit {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg) translateX(140px) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg) translateX(140px) rotate(-360deg);
+    }
   }
 
   .hero h1 {
@@ -625,9 +866,32 @@ footer {
     padding: 70px 15px 40px;
   }
 
+  .image-container {
+    width: 160px;
+    height: 160px;
+  }
+
   .mee img {
-    width: 200px;
-    height: 200px;
+    width: 160px;
+    height: 160px;
+  }
+
+  .icon-orbit {
+    width: 32px;
+    height: 32px;
+  }
+
+  .icon-orbit i {
+    font-size: 14px;
+  }
+
+  @keyframes orbit {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg) translateX(110px) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg) translateX(110px) rotate(-360deg);
+    }
   }
 
   .projects > p {
